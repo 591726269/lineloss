@@ -17,9 +17,19 @@
 </div>
 <div style="position: absolute;z-index: 1;width: 100%;height: 100%">
     <img src="images/bg1.png" width="100%" height="90%" />
-    <div style="position: absolute;z-index: 2;top: 20%;left:50%">
-        <img src="/images/xtgj_select.png">
-
+    <div style="position: absolute;z-index: 2;top: 10%;left:55%">
+        <img src="/images/login.png">
+        <div class="account" style="position: relative; left: 50%; top: -300px; z-index: 3;">
+            <h4>用户名:<input type="text" id="username" name="username" placeholder="请输入用户名"/></h4>
+        </div><br>
+        <div class="psw" style="position: relative; left: 49.69%; top: -320px; z-index: 3;">
+            <h4>密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="password" id="password" name="password" placeholder="请输入密码"/></h4>
+        </div><br>
+        <div class="account" style="position: relative; left: 50%; top: -345px; z-index: 3;">
+            <h4>验证码:<input type="text" id="yzm" name="yzm" placeholder="请输入验证码"/></h4>
+        </div><br>
+        <button style="position: relative; left: 50%; top: -245px; height: 30px; width: 100px; z-index: 3; background-color: #2dc3e8; color: white;" type="submit" onclick='ok();return false;'>注 册</button>
+        <button style="position: relative; left: 60%; top: -245px; height: 30px; width: 100px; z-index: 3; background-color: #2dc3e8; color: white;" type="submit" onclick='ok();return false;'>登 录</button>
     </div>
 </div>
 </body>
