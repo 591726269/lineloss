@@ -12,6 +12,7 @@ public class User {
     private String password;
     private Date birthday;
     private String sex;
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -53,6 +54,14 @@ public class User {
         this.sex = sex;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -61,6 +70,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
                 ", sex='" + sex + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 }

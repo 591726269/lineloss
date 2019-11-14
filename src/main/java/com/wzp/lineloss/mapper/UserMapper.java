@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface UserMapper {
-    @Insert("insert into user(username,password,birthday,sex) values (${username},${password},${birthday},${sex})")
+    @Insert("insert into user(username,password,birthday,sex,phone) values (${username},${password},${birthday},${sex},${phone})")
     void insert(User user);
     @Select("select * from where id = ${id}")
     void selectById(Integer id);
