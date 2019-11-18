@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎使用线损异常智能诊断平台</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/lineloss.css"/>
+    <script src="/js/jquery.min.js" type="application/javascript"></script>
+    <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+</head>
+<body>
+<div class="container-fluid" style="background-color: white">
+    <div class="row-fluid">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <img alt="140x140" src="/images/xsgj.png" style="height: 60px"/>
+        </div>
+    </div>
+</div>
+<div class="row bg" style="width: auto;height: 700px">
+    <div class="row login" style="width: 600px;margin-left: 55%;margin-top: 1.5%">
+        <form class="form-horizontal" style="margin-top: 15%;margin-left: 45%" id="form1">
+            <div class="form-group">
+                <div class="col-sm-10" style="left: 10px;width: 300px">
+                    用户名:<input type="text" class="form-control" id="name" name="name" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10" style="left: 10px;width: 300px;">
+                    密码:<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me ？
+                        </label><br>
+                        没有账号？请点击<a href="/user/toRegister">注册</a>。。。
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10" style="top: 57px;width: 300px;left: -35px">
+                    <input type="button" id="theButton" class="btn btn-success btn-block" onclick="ensuresubmit()" value="登录">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    function ensuresubmit(){
+        var name=$('#name').val();
+        var password=$('#password').val();
+        if(name==null||name==''){
+            alert('请输入用户名！');
+            return false;
+        }
+        if(password==null||password==''){
+            alert('请输入密码！');
+            return false;
+        }
+        $.ajax({
+            url:"user/login",
+            data:$("#form1").serialize(),
+            type:"POST",
+            success:function(data){
+                if(data>0){
+                    //获取上一页的url:document.referrer
+                    var last=document.referrer;
+                    if(last.indexOf("/user/toRegister")){
+                        window.location.href="/index";
+                    }else{
+                        window.location.href=document.referrer;  //返回上一页的URL并刷新
+                    }
+                }else{
+                    alert('用户名或者密码不正确');
+                }
+            },
+            error:function(){
+                alert("服务器忙");
+            },
+            dataType:"json"
+        });
+    }
+
+    //给确认按钮绑定submit事件
+    $("body").keydown(function() {
+        if (event.keyCode == "13") {//keyCode=13是回车键
+            $('#theButton').click();//换成按钮的id即可
+        }
+    });
+</script>
+</html>

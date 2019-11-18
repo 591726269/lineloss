@@ -2,6 +2,7 @@ package com.wzp.lineloss.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author wzp
@@ -10,7 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class indexController {
     @GetMapping("/")
-    public String index(){
-        return "login";
+    public String indexLogin(){
+        return "user/login";
     }
-}
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
+    }
+    }

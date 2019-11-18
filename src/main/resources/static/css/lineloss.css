@@ -1,0 +1,14 @@
+.bg {
+    background: url(../images/bg1.png) no-repeat;
+    background-size:100% 100%;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
+}
+.login{
+    background: url(../images/login.png) no-repeat;
+    background-size:100% 100%;
+    width: 400px;
+    height: 400px;
+    z-index: 2;
+}
