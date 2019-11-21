@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="nav">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" style="background-color: #2aabd2">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="width: 255px">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" src="/images/logo.png" style="width: 150px">
+                </a>
+            </div><!---->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><span class="glyphicon glyphicon-certificate" aria-hidden="true"
+                                          style="text-align: center"><br>线损分析</span></a></li>
+                    <li><a href="/gdgl"><span class="glyphicon glyphicon-calendar" aria-hidden="true"
+                                          style="text-align: center"><br>工单管理</span></a></li>
+                    <li><a href="/xtgj"><span class="glyphicon glyphicon-cog" aria-hidden="true" style="text-align: center"><br>系统工具</span></a>
+                    </li>
+                    <li><a href="/zlbg"><span class="glyphicon glyphicon-file" aria-hidden="true"
+                                          style="text-align: center"><br>治理报告</span></a></li>
+                    <li><a href="/xtgl"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"
+                                          style="text-align: center"><br>系统管理</span></a></li>
+                    <li><a href="/tjfx"><span class="glyphicon glyphicon-signal" aria-hidden="true"
+                                          style="text-align: center"><br>统计分析</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" th:if="${session.loginUser}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
+                            <span th:text="${session.loginUser.getName()}"></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">个人资料</a></li>
+                            <li><a href="/">退出登陆</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
